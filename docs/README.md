@@ -4,9 +4,14 @@
 
 ## Index
 
+### Classes
+
+* [StubResourceRecord](classes/stubresourcerecord.md)
+
 ### Interfaces
 
 * [MockAxios](interfaces/mockaxios.md)
+* [StubResource](interfaces/stubresource.md)
 
 ### Type aliases
 
@@ -15,6 +20,7 @@
 ### Variables
 
 * [AxiosResponseFactory](README.md#const-axiosresponsefactory)
+* [StubResourceRecordFactory](README.md#const-stubresourcerecordfactory)
 
 ### Functions
 
@@ -37,7 +43,7 @@
 
 Ƭ **AxiosJestMock**: *Mock‹Promise‹object›, []›*
 
-*Defined in [mocks/mock-axios.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L14)*
+*Defined in [src/mocks/mock-axios.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L14)*
 
 MockAxios is merely a typed wrapper around the dynamically
 mocked __mocks__/axios implementation.
@@ -52,7 +58,20 @@ mocked __mocks__/axios implementation.
     .sequence("status", () => 200)
     .sequence("statusText", () => "OK")
 
-*Defined in [factories/axios-response-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/factories/axios-response-factory.ts#L9)*
+*Defined in [src/factories/axios-response-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/factories/axios-response-factory.ts#L9)*
+
+___
+
+### `Const` StubResourceRecordFactory
+
+• **StubResourceRecordFactory**: *IFactory‹[StubResourceRecord](classes/stubresourcerecord.md)‹››* = Factory.define<StubResourceRecord>(
+    FactoryType.StubResourceRecord,
+    StubResourceRecord
+)
+    .sequence("id", (i: number) => i)
+    .sequence("name", (i: number) => `Name ${i}`)
+
+*Defined in [src/factories/stub-resource-record-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/factories/stub-resource-record-factory.ts#L9)*
 
 ## Functions
 
@@ -60,7 +79,7 @@ mocked __mocks__/axios implementation.
 
 ▸ **_mockSuccess**(`method`: [AxiosJestMock](README.md#axiosjestmock), `resultObject`: any | any[], `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:88](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L88)*
+*Defined in [src/mocks/mock-axios.ts:88](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L88)*
 
 **Parameters:**
 
@@ -78,7 +97,7 @@ ___
 
 ▸ **_resultObjectToJS**(`resultObject`: any | any[]): *any | any[]*
 
-*Defined in [mocks/mock-axios.ts:113](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L113)*
+*Defined in [src/mocks/mock-axios.ts:113](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L113)*
 
 **Parameters:**
 
@@ -94,7 +113,7 @@ ___
 
 ▸ **deleteSuccess**(`record?`: any, `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:67](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L67)*
+*Defined in [src/mocks/mock-axios.ts:67](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L67)*
 
 **Parameters:**
 
@@ -111,7 +130,7 @@ ___
 
 ▸ **getSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L70)*
+*Defined in [src/mocks/mock-axios.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L70)*
 
 **Parameters:**
 
@@ -128,7 +147,7 @@ ___
 
 ▸ **listSuccess**(`records`: any[], `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:73](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L73)*
+*Defined in [src/mocks/mock-axios.ts:73](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L73)*
 
 **Parameters:**
 
@@ -145,7 +164,7 @@ ___
 
 ▸ **postSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:76](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L76)*
+*Defined in [src/mocks/mock-axios.ts:76](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L76)*
 
 **Parameters:**
 
@@ -162,7 +181,7 @@ ___
 
 ▸ **putSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [mocks/mock-axios.ts:79](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L79)*
+*Defined in [src/mocks/mock-axios.ts:79](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L79)*
 
 **Parameters:**
 
@@ -179,13 +198,19 @@ Name | Type |
 
 ### ▪ **FactoryType**: *object*
 
-*Defined in [factories/factory-type.ts:1](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/factories/factory-type.ts#L1)*
+*Defined in [src/factories/factory-type.ts:1](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/factories/factory-type.ts#L1)*
 
 ###  AxiosResponse
 
 • **AxiosResponse**: *string* = "AxiosResponse"
 
-*Defined in [factories/factory-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/factories/factory-type.ts#L2)*
+*Defined in [src/factories/factory-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/factories/factory-type.ts#L2)*
+
+###  StubResourceRecord
+
+• **StubResourceRecord**: *string* = "StubResourceRecord"
+
+*Defined in [src/factories/factory-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/factories/factory-type.ts#L3)*
 
 ___
 
@@ -193,58 +218,58 @@ ___
 
 ### ▪ **MockAxios**: *object*
 
-*Defined in [mocks/mock-axios.ts:135](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L135)*
+*Defined in [src/mocks/mock-axios.ts:135](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L135)*
 
 ###  delete
 
 • **delete**: *Mock‹Promise‹object›, []›* = axios.delete as AxiosJestMock
 
-*Defined in [mocks/mock-axios.ts:136](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L136)*
+*Defined in [src/mocks/mock-axios.ts:136](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L136)*
 
 ###  deleteSuccess
 
 • **deleteSuccess**: *[deleteSuccess](README.md#const-deletesuccess)*
 
-*Defined in [mocks/mock-axios.ts:137](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L137)*
+*Defined in [src/mocks/mock-axios.ts:137](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L137)*
 
 ###  get
 
 • **get**: *Mock‹Promise‹object›, []›* = axios.get as AxiosJestMock
 
-*Defined in [mocks/mock-axios.ts:138](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L138)*
+*Defined in [src/mocks/mock-axios.ts:138](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L138)*
 
 ###  getSuccess
 
 • **getSuccess**: *[getSuccess](README.md#const-getsuccess)*
 
-*Defined in [mocks/mock-axios.ts:139](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L139)*
+*Defined in [src/mocks/mock-axios.ts:139](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L139)*
 
 ###  listSuccess
 
 • **listSuccess**: *[listSuccess](README.md#const-listsuccess)*
 
-*Defined in [mocks/mock-axios.ts:140](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L140)*
+*Defined in [src/mocks/mock-axios.ts:140](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L140)*
 
 ###  post
 
 • **post**: *Mock‹Promise‹object›, []›* = axios.post as AxiosJestMock
 
-*Defined in [mocks/mock-axios.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L141)*
+*Defined in [src/mocks/mock-axios.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L141)*
 
 ###  postSuccess
 
 • **postSuccess**: *[postSuccess](README.md#const-postsuccess)*
 
-*Defined in [mocks/mock-axios.ts:142](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L142)*
+*Defined in [src/mocks/mock-axios.ts:142](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L142)*
 
 ###  put
 
 • **put**: *Mock‹Promise‹object›, []›* = axios.put as AxiosJestMock
 
-*Defined in [mocks/mock-axios.ts:143](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L143)*
+*Defined in [src/mocks/mock-axios.ts:143](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L143)*
 
 ###  putSuccess
 
 • **putSuccess**: *[putSuccess](README.md#const-putsuccess)*
 
-*Defined in [mocks/mock-axios.ts:144](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/915266c/src/mocks/mock-axios.ts#L144)*
+*Defined in [src/mocks/mock-axios.ts:144](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/999e358/src/mocks/mock-axios.ts#L144)*
