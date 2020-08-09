@@ -1,4 +1,4 @@
-require("jest-extended");
+import "jest-extended";
 
 // Run before each individual test across the entire test suite
 beforeEach(() => {
