@@ -1,0 +1,90 @@
+import { TestUtils } from "./test-utils";
+import faker from "faker";
+
+describe("TestUtils", () => {
+    // -----------------------------------------------------------------------------------------
+    // #region randomKey
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomKey", () => {
+        test("given an object with at least one key, it returns a random key", () => {
+            // Arrange
+            const keys = faker.random.words(5).split(" ");
+            const obj = {};
+            keys.forEach((key: string) => {
+                // Assign the randomly generated keys to the object
+                obj[key] = faker.random.uuid();
+            });
+
+            // Act
+            const result = TestUtils.randomKey(obj);
+
+            // Assert
+            expect(Object.keys(obj)).toContain(result);
+        });
+
+        test("given an object without keys, it returns undefined", () => {
+            // Arrange
+            const obj = {};
+
+            // Act
+            const result = TestUtils.randomKey(obj);
+
+            // Assert
+            expect(result).toBeUndefined();
+        });
+    });
+
+    // #endregion randomKey
+
+    // -----------------------------------------------------------------------------------------
+    // #region randomValue
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomValue", () => {
+        test("given an object with at least one key, it returns a random value", () => {
+            // Arrange
+            const keys = faker.random.words(5).split(" ");
+            const obj = {};
+            keys.forEach((key: string) => {
+                // Assign the randomly generated keys to the object
+                obj[key] = faker.random.number();
+            });
+
+            // Act
+            const result = TestUtils.randomValue<number>(obj);
+
+            // Assert
+            expect(Object.values(obj)).toContain(result);
+        });
+
+        test("given an object without keys, it returns undefined", () => {
+            // Arrange
+            const obj = {};
+
+            // Act
+            const result = TestUtils.randomValue(obj);
+
+            // Assert
+            expect(result).toBeUndefined();
+        });
+    });
+
+    // #endregion randomValue
+
+    // -----------------------------------------------------------------------------------------
+    // #region randomWord
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomWord", () => {
+        test("it only returns a single word", () => {
+            // Arrange & Act
+            const result = TestUtils.randomWord();
+
+            // Assert
+            expect(result).not.toContain(" ");
+        });
+    });
+
+    // #endregion randomWord
+});

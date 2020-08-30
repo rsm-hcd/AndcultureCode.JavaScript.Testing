@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "axios": "0.19.2",
+        "faker": "4.1.0",
         "immutable": "4.0.0-rc.12",
         "jest": "25.5.4",
         "jest-extended": "0.11.5",
@@ -18,10 +19,12 @@
     },
     "description": "Commonly used actors for automated testing javascript applications",
     "devDependencies": {
+        "@types/faker": "4.1.12",
         "@types/jest": "25.1.5",
         "@types/lodash": "4.14.108",
         "@types/node": "13.11.0",
         "@types/rosie": "0.0.37",
+        "cross-env": "7.0.2",
         "prettier": "1.19.1",
         "rimraf": "2.6.2",
         "tslint": "6.1.2",
@@ -51,15 +54,16 @@
     "scripts": {
         "build": "tsc --pretty",
         "clean": "rimraf dist && rimraf coverage",
-        "coverage": "jest ./src --coverage --passWithNoTests",
+        "coverage": "jest ./src --coverage",
         "docs": "typedoc --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
         "format": "prettier --write \"src/**/*.ts\" --trailing-comma es5",
         "postbuild": "npm run docs",
+        "postpublish": "cross-env-shell \"git add -A && git commit -m \"$npm_package_version\" && git push origin master",
         "prebuild": "npm run clean && npm run format && echo Using TypeScript && tsc --version",
         "prepublishOnly": "npm run build",
-        "test": "jest ./src --passWithNoTests",
-        "watch": "npm run build -- --watch",
-        "watch:test": "jest ./src --watch"
+        "test": "jest ./src",
+        "watch:test": "jest ./src --watch",
+        "watch": "npm run build -- --watch"
     },
     "types": "dist/index",
     "version": "0.0.2"

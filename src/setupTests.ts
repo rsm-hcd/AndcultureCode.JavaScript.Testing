@@ -1,7 +1,4 @@
-import "@testing-library/jest-dom/extend-expect";
-
-require("jest-extended");
-require("tests/factories");
+import "jest-extended";
 
 // Run before each individual test across the entire test suite
 beforeEach(() => {
