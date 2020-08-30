@@ -13,7 +13,7 @@
         "immutable": "4.0.0-rc.12",
         "jest": "25.5.4",
         "jest-extended": "0.11.5",
-        "lodash": "4.17.15",
+        "lodash": "4.17.19",
         "rosie": "2.0.1",
         "ts-jest": "25.5.1"
     },
