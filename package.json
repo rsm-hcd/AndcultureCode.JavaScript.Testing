@@ -24,6 +24,7 @@
         "@types/lodash": "4.14.108",
         "@types/node": "13.11.0",
         "@types/rosie": "0.0.37",
+        "cross-env": "7.0.2",
         "prettier": "1.19.1",
         "rimraf": "2.6.2",
         "tslint": "6.1.2",
@@ -57,11 +58,12 @@
         "docs": "typedoc --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
         "format": "prettier --write \"src/**/*.ts\" --trailing-comma es5",
         "postbuild": "npm run docs",
+        "postpublish": "cross-env-shell \"git add -A && git commit -m \"$npm_package_version\" && git push origin master",
         "prebuild": "npm run clean && npm run format && echo Using TypeScript && tsc --version",
         "prepublishOnly": "npm run build",
         "test": "jest ./src",
-        "watch": "npm run build -- --watch",
-        "watch:test": "jest ./src --watch"
+        "watch:test": "jest ./src --watch",
+        "watch": "npm run build -- --watch"
     },
     "types": "dist/index",
     "version": "0.0.2"
