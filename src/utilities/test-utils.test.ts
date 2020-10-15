@@ -3,6 +3,26 @@ import faker from "faker";
 
 describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
+    // #region randomFilename
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomFilename", () => {
+        test("it returns a random string with a file extension", () => {
+            // Arrange & Act
+            const result = TestUtils.randomFilename();
+
+            // Assert
+            expect(result).not.toBeEmpty();
+            const name = result.split(".")[0];
+            const extension = result.split(".")[1];
+            expect(name.length).toBeGreaterThanOrEqual(1);
+            expect(extension.length).toBeGreaterThanOrEqual(1);
+        });
+    });
+
+    // #endregion randomFilename
+
+    // -----------------------------------------------------------------------------------------
     // #region randomKey
     // -----------------------------------------------------------------------------------------
 
