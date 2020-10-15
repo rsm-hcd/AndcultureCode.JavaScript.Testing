@@ -5,6 +5,11 @@ import faker from "faker";
 // -----------------------------------------------------------------------------------------
 
 /**
+ * Wrapper around `faker.system.fileName`
+ */
+const _randomFilename = (): string => faker.system.fileName();
+
+/**
  * Returns a random key from the given object. If the object has no keys, it returns `undefined`.
  *
  * @param {*} obj
@@ -37,6 +42,7 @@ const _randomWord = (): string => faker.random.word().split(" ")[0];
 // -----------------------------------------------------------------------------------------
 
 export const TestUtils = {
+    randomFilename: _randomFilename,
     randomKey: _randomKey,
     randomValue: _randomValue,
     randomWord: _randomWord,
