@@ -2,26 +2,34 @@
 // #region Factories
 // -----------------------------------------------------------------------------------------
 
-export * from "./factories/axios-response-factory";
-export * from "./factories/factory-type";
-export * from "./factories/stub-resource-record-factory";
+export { AxiosResponseFactory } from "./factories/axios-response-factory";
+export { FactoryType } from "./factories/factory-type";
+export { StubResourceRecordFactory } from "./factories/stub-resource-record-factory";
 
-//#endregion Factories
+// #endregion Factories
 
 // -----------------------------------------------------------------------------------------
 // #region Mocks
 // -----------------------------------------------------------------------------------------
 
 export * from "./mocks/axios";
-export * from "./mocks/mock-axios";
+export { MockAxios } from "./mocks/mock-axios";
 
-//#endregion Mocks
+// #endregion Mocks
 
 // -----------------------------------------------------------------------------------------
 // #region Stubs
 // -----------------------------------------------------------------------------------------
 
-export * from "./stubs/stub-resource";
-export * from "./stubs/stub-resource-record";
+export { StubResource } from "./stubs/stub-resource";
+export { StubResourceRecord } from "./stubs/stub-resource-record";
 
-//#endregion Stubs
+// #endregion Stubs
+
+// -----------------------------------------------------------------------------------------
+// #region Utilities
+// -----------------------------------------------------------------------------------------
+
+export { TestUtils } from "./utilities/test-utils";
+
+// #endregion Utilities
