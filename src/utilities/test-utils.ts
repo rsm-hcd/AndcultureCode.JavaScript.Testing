@@ -5,6 +5,17 @@ import faker from "faker";
 // -----------------------------------------------------------------------------------------
 
 /**
+ * Randomize case of string
+ */
+const _randomCase = (str: string): string =>
+    str
+        .split("")
+        .map((char) =>
+            faker.random.boolean() ? char.toUpperCase() : char.toLowerCase()
+        )
+        .join("");
+
+/**
  * Wrapper around `faker.system.fileName`
  */
 const _randomFilename = (): string => faker.system.fileName();
@@ -63,6 +74,7 @@ const _randomWord = (): string => faker.random.word().split(" ")[0];
 // -----------------------------------------------------------------------------------------
 
 export const TestUtils = {
+    randomCase: _randomCase,
     randomFilename: _randomFilename,
     randomKey: _randomKey,
     randomObject: _randomObject,

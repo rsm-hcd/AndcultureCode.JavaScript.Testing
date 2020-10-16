@@ -3,6 +3,27 @@ import faker from "faker";
 
 describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
+    // #region randomCase
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomCase", () => {
+        test("it randomizes case of string", () => {
+            // Arrange & Act
+            let fixture = "";
+            for (let i = 0; i < 20; i++) {
+                fixture += "a";
+            }
+            const result = TestUtils.randomCase(fixture);
+
+            // Assert
+            expect(result).toContain("a");
+            expect(result).toContain("A");
+        });
+    });
+
+    // #endregion randomCase
+
+    // -----------------------------------------------------------------------------------------
     // #region randomFilename
     // -----------------------------------------------------------------------------------------
 
