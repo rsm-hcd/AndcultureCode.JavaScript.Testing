@@ -107,4 +107,29 @@ describe("TestUtils", () => {
     });
 
     // #endregion randomWord
+
+    // -----------------------------------------------------------------------------------------
+    // #region randomObject
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomObject", () => {
+      test("returns object with passed amount of keys", () => {
+          // Arrange & Act
+          const result = TestUtils.randomObject(15);
+
+          // Assert
+          expect(Object.keys(result).length).toEqual(15);
+      });
+
+      test("returns object with random amount of keys less or equal than 10", () => {
+          // Arrange & Act
+          const result = TestUtils.randomObject();
+
+          // Assert
+          expect(Object.keys(result).length).toBeGreaterThan(0);
+          expect(Object.keys(result).length).toBeLessThanOrEqual(10);
+      });
+    });
+
+    // #endregion randomObject
 });

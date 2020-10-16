@@ -35,6 +35,26 @@ const _randomValue = <TValue = any>(obj: any): TValue => obj[_randomKey(obj)];
  */
 const _randomWord = (): string => faker.random.word().split(" ")[0];
 
+/**
+ * Generates random object
+ */
+const _randomObject = (keyCount?: number) => {
+    const randomObject: Record<string, any> = {};
+    keyCount = keyCount ?? faker.random.number({ min: 1, max: 10 });
+
+    for (let i = 0; i < keyCount; i++) {
+        const key = faker.random.uuid();
+
+        if (randomObject[key]) {
+            continue;
+        }
+
+        randomObject[key] = _randomWord();
+    }
+
+    return randomObject;
+};
+
 // #endregion Functions
 
 // -----------------------------------------------------------------------------------------
@@ -46,6 +66,7 @@ export const TestUtils = {
     randomKey: _randomKey,
     randomValue: _randomValue,
     randomWord: _randomWord,
+    randomObject: _randomObject,
 };
 
 // #endregion Exports
