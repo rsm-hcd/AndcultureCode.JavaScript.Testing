@@ -19,6 +19,22 @@ const _randomKey = (obj: any): string =>
     faker.random.arrayElement(Object.keys(obj));
 
 /**
+ * Generates random object
+ */
+const _randomObject = (keyCount?: number) => {
+  const randomObject: Record<string, any> = {};
+  keyCount = keyCount ?? faker.random.number({ min: 1, max: 10 });
+
+  for (let i = 0; i < keyCount; i++) {
+    const key = faker.random.uuid();
+
+    randomObject[key] = _randomWord();
+  }
+
+  return randomObject;
+};
+
+/**
  * Returns a random value from the given object. If the object has no keys, it returns `undefined`.
  *
  * @template TValue
@@ -44,6 +60,7 @@ const _randomWord = (): string => faker.random.word().split(" ")[0];
 export const TestUtils = {
     randomFilename: _randomFilename,
     randomKey: _randomKey,
+    randomObject: _randomObject,
     randomValue: _randomValue,
     randomWord: _randomWord,
 };
