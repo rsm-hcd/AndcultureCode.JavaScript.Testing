@@ -22,16 +22,16 @@ const _randomKey = (obj: any): string =>
  * Generates random object
  */
 const _randomObject = (keyCount?: number) => {
-  const randomObject: Record<string, any> = {};
-  keyCount = keyCount ?? faker.random.number({ min: 1, max: 10 });
+    const randomObject: Record<string, any> = {};
+    keyCount = keyCount ?? faker.random.number({ min: 1, max: 10 });
 
-  for (let i = 0; i < keyCount; i++) {
-    const key = faker.random.uuid();
+    for (let i = 0; i < keyCount; i++) {
+        const key = faker.random.uuid();
 
-    randomObject[key] = _randomWord();
-  }
+        randomObject[key] = _randomWord();
+    }
 
-  return randomObject;
+    return randomObject;
 };
 
 /**
