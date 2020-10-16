@@ -45,10 +45,6 @@ const _randomObject = (keyCount?: number) => {
     for (let i = 0; i < keyCount; i++) {
         const key = faker.random.uuid();
 
-        if (randomObject[key]) {
-            continue;
-        }
-
         randomObject[key] = _randomWord();
     }
 
