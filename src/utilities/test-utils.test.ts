@@ -83,6 +83,23 @@ describe("TestUtils", () => {
   // #endregion randomObject
 
     // -----------------------------------------------------------------------------------------
+    // #region randomPath
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomPath", () => {
+      test("it returns a random path", () => {
+        // Arrange & Act
+        const result = TestUtils.randomPath();
+
+        // Assert
+        expect(result).not.toBeEmpty();
+        expect(result).toContain("/");
+      });
+    });
+
+    // #endregion randomPath
+
+    // -----------------------------------------------------------------------------------------
     // #region randomValue
     // -----------------------------------------------------------------------------------------
 
