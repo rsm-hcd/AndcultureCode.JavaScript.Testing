@@ -35,6 +35,11 @@ const _randomObject = (keyCount?: number) => {
 };
 
 /**
+ * Generates random path
+ */
+const _randomPath = (): string => faker.system.directoryPath();
+
+/**
  * Returns a random value from the given object. If the object has no keys, it returns `undefined`.
  *
  * @template TValue
@@ -61,6 +66,7 @@ export const TestUtils = {
     randomFilename: _randomFilename,
     randomKey: _randomKey,
     randomObject: _randomObject,
+    randomPath: _randomPath,
     randomValue: _randomValue,
     randomWord: _randomWord,
 };
