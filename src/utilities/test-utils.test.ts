@@ -9,11 +9,7 @@ describe("TestUtils", () => {
     describe("randomCase", () => {
         test("it randomizes case of string", () => {
             // Arrange & Act
-            let fixture = "";
-            for (let i = 0; i < 20; i++) {
-                fixture += "a";
-            }
-            const result = TestUtils.randomCase(fixture);
+            const result = TestUtils.randomCase("a".repeat(20));
 
             // Assert
             expect(result).toContain("a");
