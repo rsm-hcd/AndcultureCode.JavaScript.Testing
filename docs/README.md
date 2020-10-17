@@ -25,8 +25,11 @@
 ### Functions
 
 * [_mockSuccess](README.md#const-_mocksuccess)
+* [_randomCase](README.md#const-_randomcase)
 * [_randomFilename](README.md#const-_randomfilename)
 * [_randomKey](README.md#const-_randomkey)
+* [_randomObject](README.md#const-_randomobject)
+* [_randomPath](README.md#const-_randompath)
 * [_randomValue](README.md#const-_randomvalue)
 * [_randomWord](README.md#const-_randomword)
 * [_resultObjectToJS](README.md#const-_resultobjecttojs)
@@ -48,7 +51,7 @@
 
 Ƭ **AxiosJestMock**: *Mock‹Promise‹object›, []›*
 
-*Defined in [src/mocks/mock-axios.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L14)*
+*Defined in [src/mocks/mock-axios.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L14)*
 
 MockAxios is merely a typed wrapper around the dynamically
 mocked __mocks__/axios implementation.
@@ -63,7 +66,7 @@ mocked __mocks__/axios implementation.
     .sequence("status", () => 200)
     .sequence("statusText", () => "OK")
 
-*Defined in [src/factories/axios-response-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/factories/axios-response-factory.ts#L9)*
+*Defined in [src/factories/axios-response-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/factories/axios-response-factory.ts#L9)*
 
 ___
 
@@ -76,7 +79,7 @@ ___
     .sequence("id", (i: number) => i)
     .sequence("name", (i: number) => `Name ${i}`)
 
-*Defined in [src/factories/stub-resource-record-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/factories/stub-resource-record-factory.ts#L9)*
+*Defined in [src/factories/stub-resource-record-factory.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/factories/stub-resource-record-factory.ts#L9)*
 
 ## Functions
 
@@ -84,7 +87,7 @@ ___
 
 ▸ **_mockSuccess**(`method`: [AxiosJestMock](README.md#axiosjestmock), `resultObject`: any | any[], `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:88](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L88)*
+*Defined in [src/mocks/mock-axios.ts:88](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L88)*
 
 **Parameters:**
 
@@ -98,11 +101,29 @@ Name | Type |
 
 ___
 
+### `Const` _randomCase
+
+▸ **_randomCase**(`str`: string): *string*
+
+*Defined in [src/utilities/test-utils.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L10)*
+
+Randomize case of string
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`str` | string |
+
+**Returns:** *string*
+
+___
+
 ### `Const` _randomFilename
 
 ▸ **_randomFilename**(): *string*
 
-*Defined in [src/utilities/test-utils.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L10)*
+*Defined in [src/utilities/test-utils.ts:21](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L21)*
 
 Wrapper around `faker.system.fileName`
 
@@ -114,7 +135,7 @@ ___
 
 ▸ **_randomKey**(`obj`: any): *string*
 
-*Defined in [src/utilities/test-utils.ts:18](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L18)*
+*Defined in [src/utilities/test-utils.ts:29](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L29)*
 
 Returns a random key from the given object. If the object has no keys, it returns `undefined`.
 
@@ -128,11 +149,41 @@ Name | Type |
 
 ___
 
+### `Const` _randomObject
+
+▸ **_randomObject**(`keyCount?`: undefined | number): *object*
+
+*Defined in [src/utilities/test-utils.ts:35](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L35)*
+
+Generates random object
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`keyCount?` | undefined &#124; number |
+
+**Returns:** *object*
+
+___
+
+### `Const` _randomPath
+
+▸ **_randomPath**(): *string*
+
+*Defined in [src/utilities/test-utils.ts:51](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L51)*
+
+Generates random path
+
+**Returns:** *string*
+
+___
+
 ### `Const` _randomValue
 
 ▸ **_randomValue**<**TValue**>(`obj`: any): *TValue*
 
-*Defined in [src/utilities/test-utils.ts:28](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L28)*
+*Defined in [src/utilities/test-utils.ts:60](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L60)*
 
 Returns a random value from the given object. If the object has no keys, it returns `undefined`.
 
@@ -154,7 +205,7 @@ ___
 
 ▸ **_randomWord**(): *string*
 
-*Defined in [src/utilities/test-utils.ts:36](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L36)*
+*Defined in [src/utilities/test-utils.ts:68](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L68)*
 
 Wrapper of faker.random.word.
 
@@ -169,7 +220,7 @@ ___
 
 ▸ **_resultObjectToJS**(`resultObject`: any | any[]): *any | any[]*
 
-*Defined in [src/mocks/mock-axios.ts:113](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L113)*
+*Defined in [src/mocks/mock-axios.ts:113](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L113)*
 
 **Parameters:**
 
@@ -185,7 +236,7 @@ ___
 
 ▸ **deleteSuccess**(`record?`: any, `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:67](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L67)*
+*Defined in [src/mocks/mock-axios.ts:67](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L67)*
 
 **Parameters:**
 
@@ -202,7 +253,7 @@ ___
 
 ▸ **getSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L70)*
+*Defined in [src/mocks/mock-axios.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L70)*
 
 **Parameters:**
 
@@ -219,7 +270,7 @@ ___
 
 ▸ **listSuccess**(`records`: any[], `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:73](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L73)*
+*Defined in [src/mocks/mock-axios.ts:73](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L73)*
 
 **Parameters:**
 
@@ -236,7 +287,7 @@ ___
 
 ▸ **postSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:76](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L76)*
+*Defined in [src/mocks/mock-axios.ts:76](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L76)*
 
 **Parameters:**
 
@@ -253,7 +304,7 @@ ___
 
 ▸ **putSuccess**(`record`: any, `delay?`: undefined | number): *void*
 
-*Defined in [src/mocks/mock-axios.ts:79](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L79)*
+*Defined in [src/mocks/mock-axios.ts:79](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L79)*
 
 **Parameters:**
 
@@ -270,19 +321,19 @@ Name | Type |
 
 ### ▪ **FactoryType**: *object*
 
-*Defined in [src/factories/factory-type.ts:1](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/factories/factory-type.ts#L1)*
+*Defined in [src/factories/factory-type.ts:1](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/factories/factory-type.ts#L1)*
 
 ###  AxiosResponse
 
 • **AxiosResponse**: *string* = "AxiosResponse"
 
-*Defined in [src/factories/factory-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/factories/factory-type.ts#L2)*
+*Defined in [src/factories/factory-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/factories/factory-type.ts#L2)*
 
 ###  StubResourceRecord
 
 • **StubResourceRecord**: *string* = "StubResourceRecord"
 
-*Defined in [src/factories/factory-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/factories/factory-type.ts#L3)*
+*Defined in [src/factories/factory-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/factories/factory-type.ts#L3)*
 
 ___
 
@@ -290,61 +341,61 @@ ___
 
 ### ▪ **MockAxios**: *object*
 
-*Defined in [src/mocks/mock-axios.ts:135](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L135)*
+*Defined in [src/mocks/mock-axios.ts:135](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L135)*
 
 ###  delete
 
 • **delete**: *Mock‹Promise‹object›, []›* = axios.delete as AxiosJestMock
 
-*Defined in [src/mocks/mock-axios.ts:136](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L136)*
+*Defined in [src/mocks/mock-axios.ts:136](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L136)*
 
 ###  deleteSuccess
 
 • **deleteSuccess**: *[deleteSuccess](README.md#const-deletesuccess)*
 
-*Defined in [src/mocks/mock-axios.ts:137](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L137)*
+*Defined in [src/mocks/mock-axios.ts:137](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L137)*
 
 ###  get
 
 • **get**: *Mock‹Promise‹object›, []›* = axios.get as AxiosJestMock
 
-*Defined in [src/mocks/mock-axios.ts:138](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L138)*
+*Defined in [src/mocks/mock-axios.ts:138](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L138)*
 
 ###  getSuccess
 
 • **getSuccess**: *[getSuccess](README.md#const-getsuccess)*
 
-*Defined in [src/mocks/mock-axios.ts:139](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L139)*
+*Defined in [src/mocks/mock-axios.ts:139](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L139)*
 
 ###  listSuccess
 
 • **listSuccess**: *[listSuccess](README.md#const-listsuccess)*
 
-*Defined in [src/mocks/mock-axios.ts:140](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L140)*
+*Defined in [src/mocks/mock-axios.ts:140](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L140)*
 
 ###  post
 
 • **post**: *Mock‹Promise‹object›, []›* = axios.post as AxiosJestMock
 
-*Defined in [src/mocks/mock-axios.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L141)*
+*Defined in [src/mocks/mock-axios.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L141)*
 
 ###  postSuccess
 
 • **postSuccess**: *[postSuccess](README.md#const-postsuccess)*
 
-*Defined in [src/mocks/mock-axios.ts:142](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L142)*
+*Defined in [src/mocks/mock-axios.ts:142](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L142)*
 
 ###  put
 
 • **put**: *Mock‹Promise‹object›, []›* = axios.put as AxiosJestMock
 
-*Defined in [src/mocks/mock-axios.ts:143](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L143)*
+*Defined in [src/mocks/mock-axios.ts:143](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L143)*
 
 ###  putSuccess
 
 • **putSuccess**: *[putSuccess](README.md#const-putsuccess)*
 
-*Defined in [src/mocks/mock-axios.ts:144](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/mocks/mock-axios.ts#L144)*
+*Defined in [src/mocks/mock-axios.ts:144](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/mocks/mock-axios.ts#L144)*
 
 ___
 
@@ -352,28 +403,46 @@ ___
 
 ### ▪ **TestUtils**: *object*
 
-*Defined in [src/utilities/test-utils.ts:44](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L44)*
+*Defined in [src/utilities/test-utils.ts:76](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L76)*
+
+###  randomCase
+
+• **randomCase**: *[_randomCase](README.md#const-_randomcase)* = _randomCase
+
+*Defined in [src/utilities/test-utils.ts:77](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L77)*
 
 ###  randomFilename
 
 • **randomFilename**: *[_randomFilename](README.md#const-_randomfilename)* = _randomFilename
 
-*Defined in [src/utilities/test-utils.ts:45](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L45)*
+*Defined in [src/utilities/test-utils.ts:78](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L78)*
 
 ###  randomKey
 
 • **randomKey**: *[_randomKey](README.md#const-_randomkey)* = _randomKey
 
-*Defined in [src/utilities/test-utils.ts:46](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L46)*
+*Defined in [src/utilities/test-utils.ts:79](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L79)*
+
+###  randomObject
+
+• **randomObject**: *[_randomObject](README.md#const-_randomobject)* = _randomObject
+
+*Defined in [src/utilities/test-utils.ts:80](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L80)*
+
+###  randomPath
+
+• **randomPath**: *[_randomPath](README.md#const-_randompath)* = _randomPath
+
+*Defined in [src/utilities/test-utils.ts:81](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L81)*
 
 ###  randomValue
 
 • **randomValue**: *[_randomValue](README.md#const-_randomvalue)* = _randomValue
 
-*Defined in [src/utilities/test-utils.ts:47](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L47)*
+*Defined in [src/utilities/test-utils.ts:82](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L82)*
 
 ###  randomWord
 
 • **randomWord**: *[_randomWord](README.md#const-_randomword)* = _randomWord
 
-*Defined in [src/utilities/test-utils.ts:48](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/234edee/src/utilities/test-utils.ts#L48)*
+*Defined in [src/utilities/test-utils.ts:83](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/blob/a4fc807/src/utilities/test-utils.ts#L83)*
