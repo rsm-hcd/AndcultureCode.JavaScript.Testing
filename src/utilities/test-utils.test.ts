@@ -3,6 +3,23 @@ import faker from "faker";
 
 describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
+    // #region randomCase
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomCase", () => {
+        test("it randomizes case of string", () => {
+            // Arrange & Act
+            const result = TestUtils.randomCase("a".repeat(20));
+
+            // Assert
+            expect(result).toContain("a");
+            expect(result).toContain("A");
+        });
+    });
+
+    // #endregion randomCase
+
+    // -----------------------------------------------------------------------------------------
     // #region randomFilename
     // -----------------------------------------------------------------------------------------
 
@@ -57,44 +74,44 @@ describe("TestUtils", () => {
 
     // #endregion randomKey
 
-  // -----------------------------------------------------------------------------------------
-  // #region randomObject
-  // -----------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------
+    // #region randomObject
+    // -----------------------------------------------------------------------------------------
 
-  describe("randomObject", () => {
-    test("returns object with passed amount of keys", () => {
-      // Arrange & Act
-      const result = TestUtils.randomObject(15);
+    describe("randomObject", () => {
+        test("returns object with passed amount of keys", () => {
+            // Arrange & Act
+            const result = TestUtils.randomObject(15);
 
-      // Assert
-      expect(Object.keys(result).length).toEqual(15);
+            // Assert
+            expect(Object.keys(result).length).toEqual(15);
+        });
+
+        test("returns object with random amount of keys less or equal than 10", () => {
+            // Arrange & Act
+            const result = TestUtils.randomObject();
+
+            // Assert
+            expect(Object.keys(result).length).toBeGreaterThan(0);
+            expect(Object.keys(result).length).toBeLessThanOrEqual(10);
+        });
     });
 
-    test("returns object with random amount of keys less or equal than 10", () => {
-      // Arrange & Act
-      const result = TestUtils.randomObject();
-
-      // Assert
-      expect(Object.keys(result).length).toBeGreaterThan(0);
-      expect(Object.keys(result).length).toBeLessThanOrEqual(10);
-    });
-  });
-
-  // #endregion randomObject
+    // #endregion randomObject
 
     // -----------------------------------------------------------------------------------------
     // #region randomPath
     // -----------------------------------------------------------------------------------------
 
     describe("randomPath", () => {
-      test("it returns a random path", () => {
-        // Arrange & Act
-        const result = TestUtils.randomPath();
+        test("it returns a random path", () => {
+            // Arrange & Act
+            const result = TestUtils.randomPath();
 
-        // Assert
-        expect(result).not.toBeEmpty();
-        expect(result).toContain("/");
-      });
+            // Assert
+            expect(result).not.toBeEmpty();
+            expect(result).toContain("/");
+        });
     });
 
     // #endregion randomPath
