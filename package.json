@@ -66,5 +66,5 @@
         "watch": "npm run build -- --watch"
     },
     "types": "dist/index",
-    "version": "0.0.5"
+    "version": "0.1.0"
 }
