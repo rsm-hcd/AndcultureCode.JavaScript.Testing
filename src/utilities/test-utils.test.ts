@@ -179,9 +179,35 @@ describe("TestUtils", () => {
             const result = TestUtils.randomWord();
 
             // Assert
-            expect(result).not.toMatch(new RegExp(/[^a-zA-Z0-9]/));
+            expect(result).not.toMatch(/[^a-zA-Z0-9]/);
         });
     });
 
     // #endregion randomWord
+
+    // -----------------------------------------------------------------------------------------
+    // #region randomWords
+    // -----------------------------------------------------------------------------------------
+
+    describe("randomWords", () => {
+        testLoop("it returns at least two values", () => {
+            // Arrange & Act
+            const result = TestUtils.randomWords();
+
+            // Assert
+            expect(result.length).toBeGreaterThanOrEqual(2);
+        });
+
+        testLoop("it returns only alphanumeric characters", () => {
+            // Arrange & Act
+            const result = TestUtils.randomWords();
+
+            // Assert
+            result.forEach((word: string) =>
+                expect(word).not.toMatch(/[^a-zA-Z0-9]/)
+            );
+        });
+    });
+
+    // #endregion randomWords
 });

@@ -71,6 +71,19 @@ const randomWord = (): string =>
         .split(" ")[0]
         .replace(/[^A-Za-z0-9]/gi, "");
 
+/**
+ * Returns a string array of at least two random words, leveraging the `TestUtils.randomWord` function
+ */
+const randomWords = (): string[] => {
+    const words: string[] = [];
+    const count = faker.random.number({ min: 2, max: 10 });
+    for (let i = 0; i < count; i++) {
+        words.push(randomWord());
+    }
+
+    return words;
+};
+
 // #endregion Functions
 
 // -----------------------------------------------------------------------------------------
@@ -85,6 +98,7 @@ export const TestUtils = {
     randomPath,
     randomValue,
     randomWord,
+    randomWords,
 };
 
 // #endregion Exports
