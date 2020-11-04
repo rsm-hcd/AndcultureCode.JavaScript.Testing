@@ -1,5 +1,6 @@
 import { TestUtils } from "./test-utils";
 import faker from "faker";
+import { testLoop } from "./shared-specs";
 
 describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -7,7 +8,7 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomCase", () => {
-        test("it randomizes case of string", () => {
+        testLoop("it randomizes case of string", () => {
             // Arrange & Act
             const result = TestUtils.randomCase("a".repeat(20));
 
@@ -24,7 +25,7 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomFilename", () => {
-        test("it returns a random string with a file extension", () => {
+        testLoop("it returns a random string with a file extension", () => {
             // Arrange & Act
             const result = TestUtils.randomFilename();
 
@@ -44,23 +45,26 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomKey", () => {
-        test("given an object with at least one key, it returns a random key", () => {
-            // Arrange
-            const keys = faker.random.words(5).split(" ");
-            const obj = {};
-            keys.forEach((key: string) => {
-                // Assign the randomly generated keys to the object
-                obj[key] = faker.random.uuid();
-            });
+        testLoop(
+            "given an object with at least one key, it returns a random key",
+            () => {
+                // Arrange
+                const keys = faker.random.words(5).split(" ");
+                const obj = {};
+                keys.forEach((key: string) => {
+                    // Assign the randomly generated keys to the object
+                    obj[key] = faker.random.uuid();
+                });
 
-            // Act
-            const result = TestUtils.randomKey(obj);
+                // Act
+                const result = TestUtils.randomKey(obj);
 
-            // Assert
-            expect(Object.keys(obj)).toContain(result);
-        });
+                // Assert
+                expect(Object.keys(obj)).toContain(result);
+            }
+        );
 
-        test("given an object without keys, it returns undefined", () => {
+        testLoop("given an object without keys, it returns undefined", () => {
             // Arrange
             const obj = {};
 
@@ -79,7 +83,7 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomObject", () => {
-        test("returns object with passed amount of keys", () => {
+        testLoop("returns object with passed amount of keys", () => {
             // Arrange & Act
             const result = TestUtils.randomObject(15);
 
@@ -87,14 +91,17 @@ describe("TestUtils", () => {
             expect(Object.keys(result).length).toEqual(15);
         });
 
-        test("returns object with random amount of keys less or equal than 10", () => {
-            // Arrange & Act
-            const result = TestUtils.randomObject();
+        testLoop(
+            "returns object with random amount of keys less or equal than 10",
+            () => {
+                // Arrange & Act
+                const result = TestUtils.randomObject();
 
-            // Assert
-            expect(Object.keys(result).length).toBeGreaterThan(0);
-            expect(Object.keys(result).length).toBeLessThanOrEqual(10);
-        });
+                // Assert
+                expect(Object.keys(result).length).toBeGreaterThan(0);
+                expect(Object.keys(result).length).toBeLessThanOrEqual(10);
+            }
+        );
     });
 
     // #endregion randomObject
@@ -104,7 +111,7 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomPath", () => {
-        test("it returns a random path", () => {
+        testLoop("it returns a random path", () => {
             // Arrange & Act
             const result = TestUtils.randomPath();
 
@@ -121,23 +128,26 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomValue", () => {
-        test("given an object with at least one key, it returns a random value", () => {
-            // Arrange
-            const keys = faker.random.words(5).split(" ");
-            const obj = {};
-            keys.forEach((key: string) => {
-                // Assign the randomly generated keys to the object
-                obj[key] = faker.random.number();
-            });
+        testLoop(
+            "given an object with at least one key, it returns a random value",
+            () => {
+                // Arrange
+                const keys = faker.random.words(5).split(" ");
+                const obj = {};
+                keys.forEach((key: string) => {
+                    // Assign the randomly generated keys to the object
+                    obj[key] = faker.random.number();
+                });
 
-            // Act
-            const result = TestUtils.randomValue<number>(obj);
+                // Act
+                const result = TestUtils.randomValue<number>(obj);
 
-            // Assert
-            expect(Object.values(obj)).toContain(result);
-        });
+                // Assert
+                expect(Object.values(obj)).toContain(result);
+            }
+        );
 
-        test("given an object without keys, it returns undefined", () => {
+        testLoop("given an object without keys, it returns undefined", () => {
             // Arrange
             const obj = {};
 
@@ -156,12 +166,20 @@ describe("TestUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("randomWord", () => {
-        test("it only returns a single word", () => {
+        testLoop("it only returns a single word", () => {
             // Arrange & Act
             const result = TestUtils.randomWord();
 
             // Assert
             expect(result).not.toContain(" ");
+        });
+
+        testLoop("it returns only alphanumeric characters", () => {
+            // Arrange & Act
+            const result = TestUtils.randomWord();
+
+            // Assert
+            expect(result).not.toMatch(new RegExp(/[^a-zA-Z0-9]/));
         });
     });
 
