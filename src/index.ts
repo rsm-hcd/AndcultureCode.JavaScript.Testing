@@ -30,6 +30,7 @@ export { StubResourceRecord } from "./stubs/stub-resource-record";
 // #region Utilities
 // -----------------------------------------------------------------------------------------
 
+export { testLoop } from "./utilities/shared-specs";
 export { TestUtils } from "./utilities/test-utils";
 
 // #endregion Utilities

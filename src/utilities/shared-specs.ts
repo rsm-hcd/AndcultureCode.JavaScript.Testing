@@ -12,6 +12,10 @@
  * @param {number} [times=1000] Number of times to run the test function.
  */
 const testLoop = (name: string, fn: Function, times: number = 1000) => {
+    if (times < 1) {
+        throw new Error("'times' should be >= 1");
+    }
+
     test(name, async () => {
         for (let i = 0; i < times; i++) {
             await fn();
