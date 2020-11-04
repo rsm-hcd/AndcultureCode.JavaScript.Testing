@@ -9,9 +9,9 @@
  *
  * @param {string} name Name of the test
  * @param {Function} fn Function body to run (can be asynchronous)
- * @param {number} [times=1000] Number of times to run the test function.
+ * @param {number} [times=100] Number of times to run the test function.
  */
-const testLoop = (name: string, fn: Function, times: number = 1000) => {
+const testLoop = (name: string, fn: Function, times: number = 100) => {
     if (times < 1) {
         throw new Error("'times' should be >= 1");
     }
