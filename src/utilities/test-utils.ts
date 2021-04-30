@@ -1,104 +1,114 @@
 import faker from "faker";
 
-// -----------------------------------------------------------------------------------------
-// #region Functions
-// -----------------------------------------------------------------------------------------
+const TestUtils = {
+    // -----------------------------------------------------------------------------------------
+    // #region Public Properties
+    // -----------------------------------------------------------------------------------------
 
-/**
- * Randomize case of string
- */
-const randomCase = (str: string): string =>
-    str
-        .split("")
-        .map((char) =>
-            faker.random.boolean() ? char.toUpperCase() : char.toLowerCase()
-        )
-        .join("");
+    faker,
 
-/**
- * Wrapper around `faker.system.fileName`
- */
-const randomFilename = (): string => faker.system.fileName();
+    // #endregion Public Properties
 
-/**
- * Returns a random key from the given object. If the object has no keys, it returns `undefined`.
- *
- * @param {*} obj
- * @returns {string}
- */
-const randomKey = (obj: any): string =>
-    faker.random.arrayElement(Object.keys(obj));
+    // -----------------------------------------------------------------------------------------
+    // #region Public Functions
+    // -----------------------------------------------------------------------------------------
 
-/**
- * Generates random object
- */
-const randomObject = (keyCount?: number) => {
-    const randomObject: Record<string, any> = {};
-    keyCount = keyCount ?? faker.random.number({ min: 1, max: 10 });
+    /**
+     * Randomize case of string
+     */
+    randomCase(value: string): string {
+        return value
+            .split("")
+            .map((char: string) =>
+                faker.datatype.boolean()
+                    ? char.toUpperCase()
+                    : char.toLowerCase()
+            )
+            .join("");
+    },
 
-    for (let i = 0; i < keyCount; i++) {
-        const key = faker.random.uuid();
+    /**
+     * Wrapper around `faker.system.fileName`
+     */
+    randomFilename(): string {
+        return faker.system.fileName();
+    },
 
-        randomObject[key] = randomWord();
-    }
+    /**
+     * Wrapper around `faker.datatype.uuid`
+     */
+    randomGuid(): string {
+        return faker.datatype.uuid();
+    },
 
-    return randomObject;
+    /**
+     * Returns a random key from the given object. If the object has no keys, it returns `undefined`.
+     */
+    randomKey(obj: any): string {
+        return faker.random.arrayElement(Object.keys(obj));
+    },
+
+    /**
+     * Generates random object
+     */
+    randomObject(keyCount?: number): Record<string, string> {
+        const object: Record<string, string> = {};
+        keyCount = keyCount ?? faker.datatype.number({ min: 1, max: 10 });
+
+        for (let i = 0; i < keyCount; i++) {
+            const key = this.randomGuid();
+            object[key] = this.randomWord();
+        }
+
+        return object;
+    },
+    /**
+     * Generates random path
+     */
+    randomPath(): string {
+        return faker.system.directoryPath();
+    },
+
+    /**
+     * Returns a random value from the given object. If the object has no keys, it returns `undefined`.
+     */
+    randomValue<TValue = any>(obj: any): TValue {
+        return obj[this.randomKey(obj)];
+    },
+
+    /**
+     * Wrapper of faker.random.word.
+     *
+     * Unfortunately there is an unresolved bug https://github.com/Marak/faker.js/issues/661
+     * and it will occasionally return multiple which can cause test flake
+     */
+    randomWord(): string {
+        return faker.random
+            .word()
+            .split(" ")[0]
+            .replace(/[^A-Za-z0-9]/gi, "");
+    },
+
+    /**
+     * Returns a string array of at least two random words, leveraging the `TestUtils.randomWord` function
+     */
+    randomWords(): string[] {
+        const words: string[] = [];
+        const count = faker.datatype.number({ min: 2, max: 10 });
+        for (let i = 0; i < count; i++) {
+            words.push(this.randomWord());
+        }
+
+        return words;
+    },
+
+    // #endregion Public Functions
 };
-
-/**
- * Generates random path
- */
-const randomPath = (): string => faker.system.directoryPath();
-
-/**
- * Returns a random value from the given object. If the object has no keys, it returns `undefined`.
- *
- * @template TValue
- * @param {*} obj
- * @returns {TValue}
- */
-const randomValue = <TValue = any>(obj: any): TValue => obj[randomKey(obj)];
-
-/**
- * Wrapper of faker.random.word.
- *
- * Unfortunately there is an unresolved bug https://github.com/Marak/faker.js/issues/661
- * and it will occasionally return multiple which can cause test flake
- */
-const randomWord = (): string =>
-    faker.random
-        .word()
-        .split(" ")[0]
-        .replace(/[^A-Za-z0-9]/gi, "");
-
-/**
- * Returns a string array of at least two random words, leveraging the `TestUtils.randomWord` function
- */
-const randomWords = (): string[] => {
-    const words: string[] = [];
-    const count = faker.random.number({ min: 2, max: 10 });
-    for (let i = 0; i < count; i++) {
-        words.push(randomWord());
-    }
-
-    return words;
-};
-
-// #endregion Functions
 
 // -----------------------------------------------------------------------------------------
 // #region Exports
 // -----------------------------------------------------------------------------------------
 
-export const TestUtils = {
-    randomCase,
-    randomFilename,
-    randomKey,
-    randomObject,
-    randomPath,
-    randomValue,
-    randomWord,
-    randomWords,
-};
+export { TestUtils };
 
 // #endregion Exports

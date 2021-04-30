@@ -53,7 +53,7 @@ describe("TestUtils", () => {
                 const obj = {};
                 keys.forEach((key: string) => {
                     // Assign the randomly generated keys to the object
-                    obj[key] = faker.random.uuid();
+                    obj[key] = faker.datatype.uuid();
                 });
 
                 // Act
@@ -136,7 +136,7 @@ describe("TestUtils", () => {
                 const obj = {};
                 keys.forEach((key: string) => {
                     // Assign the randomly generated keys to the object
-                    obj[key] = faker.random.number();
+                    obj[key] = faker.datatype.number();
                 });
 
                 // Act
