@@ -1,10 +1,9 @@
 # AndcultureCode.JavaScript.Testing
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Testing.svg?branch=master)](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Testing)
-[![codecov](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Testing/branch/master/graph/badge.svg)](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Testing)
+[![codecov](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Testing/branch/master/graph/badge.svg)](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Testing)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Commonly used actors for automated testing javascript applications
 
