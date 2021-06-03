@@ -7,16 +7,6 @@
     "bugs": {
         "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing/issues"
     },
-    "dependencies": {
-        "axios": "0.19.2",
-        "faker": "5.5.3",
-        "immutable": "4.0.0-rc.12",
-        "jest": "25.5.4",
-        "jest-extended": "0.11.5",
-        "lodash": "4.17.19",
-        "rosie": "2.0.1",
-        "ts-jest": "25.5.1"
-    },
     "description": "Commonly used actors for automated testing javascript applications",
     "devDependencies": {
         "@types/faker": "5.5.3",
@@ -24,9 +14,16 @@
         "@types/lodash": "4.14.108",
         "@types/node": "13.11.0",
         "@types/rosie": "0.0.37",
+        "axios": "0.19.2",
         "cross-env": "7.0.2",
+        "faker": "5.5.3",
+        "immutable": "4.0.0-rc.12",
+        "jest": "25.5.4",
+        "jest-extended": "0.11.5",
         "prettier": "1.19.1",
         "rimraf": "2.6.2",
+        "rosie": "2.0.1",
+        "ts-jest": "25.5.1",
         "tslint": "6.1.2",
         "tslint-config-prettier": "1.18.0",
         "typedoc": "^0.17.6",
@@ -37,7 +34,6 @@
         "dist"
     ],
     "homepage": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing#readme",
-    "license": "ISC",
     "jest": {
         "preset": "ts-jest"
     },
@@ -45,8 +41,16 @@
         "JavaScript",
         "Node"
     ],
+    "license": "ISC",
     "main": "dist/index",
     "name": "andculturecode-javascript-testing",
+    "peerDependencies": {
+        "axios": "0.19 || 0.21",
+        "faker": ">=5.5.3",
+        "immutable": ">=4.0.0-rc.12",
+        "jest": ">=25.5.4",
+        "rosie": ">=2.0.1"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AndcultureCode/AndcultureCode.JavaScript.Testing.git"
@@ -62,8 +66,8 @@
         "prebuild": "npm run clean && npm run format && echo Using TypeScript && tsc --version",
         "prepublishOnly": "npm run build",
         "test": "jest ./src",
-        "watch:test": "jest ./src --watch",
-        "watch": "npm run build -- --watch"
+        "watch": "npm run build -- --watch",
+        "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
     "version": "0.2.0"

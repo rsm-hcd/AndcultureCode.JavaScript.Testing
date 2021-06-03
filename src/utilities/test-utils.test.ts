@@ -157,6 +157,31 @@ describe("TestUtils", () => {
             // Assert
             expect(result).toBeUndefined();
         });
+
+        testLoop(
+            "given an array with at least one value, it returns a random value",
+            () => {
+                // Arrange
+                const obj = faker.random.words(5).split(" ");
+
+                // Act
+                const result = TestUtils.randomValue(obj);
+
+                // Assert
+                expect(Object.values(obj)).toContain(result);
+            }
+        );
+
+        testLoop("given an array without values, it returns undefined", () => {
+            // Arrange
+            const obj = [];
+
+            // Act
+            const result = TestUtils.randomValue(obj);
+
+            // Assert
+            expect(result).toBeUndefined();
+        });
     });
 
     // #endregion randomValue
