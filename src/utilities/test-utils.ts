@@ -44,7 +44,7 @@ const TestUtils = {
     /**
      * Returns a random key from the given object. If the object has no keys, it returns `undefined`.
      */
-    randomKey(obj: any): string {
+    randomKey(obj: object): string {
         return faker.random.arrayElement(Object.keys(obj));
     },
 
@@ -72,7 +72,13 @@ const TestUtils = {
     /**
      * Returns a random value from the given object. If the object has no keys, it returns `undefined`.
      */
-    randomValue<TValue = any>(obj: any): TValue {
+    randomValue<TValue = any>(
+        obj: Record<string, TValue> | Array<TValue>
+    ): TValue {
+        if (Array.isArray(obj)) {
+            return faker.random.arrayElement(obj);
+        }
+
         return obj[this.randomKey(obj)];
     },
 
