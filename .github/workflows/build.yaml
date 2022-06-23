@@ -10,10 +10,18 @@ on:
 env:
     CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
 
+permissions:
+    contents: read
+    pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+    group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+    cancel-in-progress: true
+
 jobs:
     build:
         runs-on: ${{matrix.os}}
-        needs: [notify_start]
         if: always()
         strategy:
             matrix:
