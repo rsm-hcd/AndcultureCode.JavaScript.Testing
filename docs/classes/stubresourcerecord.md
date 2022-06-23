@@ -1,10 +1,10 @@
 [andculturecode-javascript-testing](../README.md) › [StubResourceRecord](stubresourcerecord.md)
 
-# Class: StubResourceRecord <**TProps**>
+# Class: StubResourceRecord ‹**TProps**›
 
 ## Type parameters
 
-▪ **TProps**: *Object*
+▪ **TProps**: *object*
 
 ## Hierarchy
 
@@ -20,7 +20,7 @@
 
 ### Namespaces
 
-* [Factory](stubresourcerecord.md#factory)
+* [Factory](../modules/stubresourcerecord.factory.md)
 
 ### Methods
 
@@ -59,103 +59,17 @@
 * [getDescriptiveName](stubresourcerecord.md#static-getdescriptivename)
 * [isRecord](stubresourcerecord.md#static-isrecord)
 
-## Namespaces
-
-###  Factory
-
-▸ (`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
-
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2444
-
-A Record.Factory is created by the `Record()` function. Record instances
-are created by passing it some of the accepted values for that Record
-type:
-
-<!-- runkit:activate
-     { "preamble": "const { Record } = require('immutable')" }
--->
-```js
-// makePerson is a Record Factory function
-const makePerson = Record({ name: null, favoriteColor: 'unknown' });
-
-// alan is a Record instance
-const alan = makePerson({ name: 'Alan' });
-```
-
-Note that Record Factories return `Record<TProps> & Readonly<TProps>`,
-this allows use of both the Record instance API, and direct property
-access on the resulting instances:
-
-<!-- runkit:activate
-     { "preamble": "const { Record } = require('immutable');const makePerson = Record({ name: null, favoriteColor: 'unknown' });const alan = makePerson({ name: 'Alan' });" }
--->
-```js
-// Use the Record API
-console.log('Record API: ' + alan.get('name'))
-
-// Or direct property access (Readonly)
-console.log('property access: ' + alan.name)
-```
-
-**Flow Typing Records:**
-
-Use the `RecordFactory<TProps>` Flow type to get high quality type checking of
-Records:
-
-```js
-import type { RecordFactory, RecordOf } from 'immutable';
-
-// Use RecordFactory<TProps> for defining new Record factory functions.
-type PersonProps = { name: ?string, favoriteColor: string };
-const makePerson: RecordFactory<PersonProps> = Record({ name: null, favoriteColor: 'unknown' });
-
-// Use RecordOf<T> for defining new instances of that Record.
-type Person = RecordOf<PersonProps>;
-const alan: Person = makePerson({ name: 'Alan' });
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`values?` | Partial‹TProps› &#124; Iterable‹[string, any]› |
-
-**Returns:** *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
-
-###  constructor
-
-\+ **new Factory**(`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
-
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2445
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`values?` | Partial‹TProps› &#124; Iterable‹[string, any]› |
-
-**Returns:** *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
-
-###  displayName
-
-• **displayName**: *string*
-
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2452
-
-The name provided to `Record(values, name)` can be accessed with
-`displayName`.
-
 ## Methods
 
 ###  [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *IterableIterator‹[keyof TProps, TProps[keyof TProps]]›*
+▸ **[Symbol.iterator]**(): *IterableIterator‹[]›*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[[Symbol.iterator]](stubresourcerecord.md#[symbol.iterator])*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2589
+Defined in node_modules/immutable/dist/immutable.d.ts:2645
 
-**Returns:** *IterableIterator‹[keyof TProps, TProps[keyof TProps]]›*
+**Returns:** *IterableIterator‹[]›*
 
 ___
 
@@ -165,7 +79,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[asImmutable](stubresourcerecord.md#asimmutable)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2583
+Defined in node_modules/immutable/dist/immutable.d.ts:2639
 
 **`see`** `Map#asImmutable`
 
@@ -179,7 +93,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[asMutable](stubresourcerecord.md#asmutable)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2573
+Defined in node_modules/immutable/dist/immutable.d.ts:2629
 
 **`see`** `Map#asMutable`
 
@@ -193,7 +107,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[clear](stubresourcerecord.md#clear)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2525
+Defined in node_modules/immutable/dist/immutable.d.ts:2575
 
 Returns a new instance of this Record type with all values set
 to their default values.
@@ -204,11 +118,11 @@ ___
 
 ###  delete
 
-▸ **delete**<**K**>(`key`: K): *this*
+▸ **delete**‹**K**›(`key`: K): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[delete](stubresourcerecord.md#delete)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2518
+Defined in node_modules/immutable/dist/immutable.d.ts:2568
 
 Returns a new instance of this Record type with the value for the
 specific key set to its default value.
@@ -231,11 +145,11 @@ ___
 
 ###  deleteIn
 
-▸ **deleteIn**(`keyPath`: Iterable‹any›): *this*
+▸ **deleteIn**(`keyPath`: Iterable‹unknown›): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[deleteIn](stubresourcerecord.md#deletein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2537
+Defined in node_modules/immutable/dist/immutable.d.ts:2593
 
 **`alias`** removeIn
 
@@ -243,7 +157,7 @@ Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2537
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
+`keyPath` | Iterable‹unknown› |
 
 **Returns:** *this*
 
@@ -251,17 +165,17 @@ ___
 
 ###  equals
 
-▸ **equals**(`other`: any): *boolean*
+▸ **equals**(`other`: unknown): *boolean*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[equals](stubresourcerecord.md#equals)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2493
+Defined in node_modules/immutable/dist/immutable.d.ts:2536
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`other` | any |
+`other` | unknown |
 
 **Returns:** *boolean*
 
@@ -269,11 +183,11 @@ ___
 
 ###  get
 
-▸ **get**<**K**>(`key`: K, `notSetValue?`: any): *TProps[K]*
+▸ **get**‹**K**›(`key`: K, `notSetValue?`: unknown): *TProps[K]*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[get](stubresourcerecord.md#get)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2483
+Defined in node_modules/immutable/dist/immutable.d.ts:2526
 
 Returns the value associated with the provided key, which may be the
 default value defined when creating the Record factory function.
@@ -291,15 +205,15 @@ produce an error when using Flow or TypeScript.
 Name | Type |
 ------ | ------ |
 `key` | K |
-`notSetValue?` | any |
+`notSetValue?` | unknown |
 
 **Returns:** *TProps[K]*
 
-▸ **get**<**T**>(`key`: string, `notSetValue`: T): *T*
+▸ **get**‹**T**›(`key`: string, `notSetValue`: T): *T*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[get](stubresourcerecord.md#get)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2484
+Defined in node_modules/immutable/dist/immutable.d.ts:2527
 
 **Type parameters:**
 
@@ -318,19 +232,19 @@ ___
 
 ###  getIn
 
-▸ **getIn**(`keyPath`: Iterable‹any›): *any*
+▸ **getIn**(`keyPath`: Iterable‹unknown›): *unknown*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[getIn](stubresourcerecord.md#getin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2489
+Defined in node_modules/immutable/dist/immutable.d.ts:2532
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
+`keyPath` | Iterable‹unknown› |
 
-**Returns:** *any*
+**Returns:** *unknown*
 
 ___
 
@@ -340,7 +254,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[has](stubresourcerecord.md#has)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2473
+Defined in node_modules/immutable/dist/immutable.d.ts:2516
 
 **Parameters:**
 
@@ -354,17 +268,17 @@ ___
 
 ###  hasIn
 
-▸ **hasIn**(`keyPath`: Iterable‹any›): *boolean*
+▸ **hasIn**(`keyPath`: Iterable‹unknown›): *boolean*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[hasIn](stubresourcerecord.md#hasin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2488
+Defined in node_modules/immutable/dist/immutable.d.ts:2531
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
+`keyPath` | Iterable‹unknown› |
 
 **Returns:** *boolean*
 
@@ -376,7 +290,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[hashCode](stubresourcerecord.md#hashcode)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2494
+Defined in node_modules/immutable/dist/immutable.d.ts:2537
 
 **Returns:** *number*
 
@@ -384,17 +298,17 @@ ___
 
 ###  merge
 
-▸ **merge**(...`collections`: Array‹Partial‹TProps› | Iterable‹[string, any]››): *this*
+▸ **merge**(...`collections`: Array‹Partial‹TProps› | Iterable‹[]››): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[merge](stubresourcerecord.md#merge)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2500
+Defined in node_modules/immutable/dist/immutable.d.ts:2546
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`...collections` | Array‹Partial‹TProps› &#124; Iterable‹[string, any]›› |
+`...collections` | Array‹Partial‹TProps› &#124; Iterable‹[]›› |
 
 **Returns:** *this*
 
@@ -402,17 +316,17 @@ ___
 
 ###  mergeDeep
 
-▸ **mergeDeep**(...`collections`: Array‹Partial‹TProps› | Iterable‹[string, any]››): *this*
+▸ **mergeDeep**(...`collections`: Array‹Partial‹TProps› | Iterable‹[]››): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[mergeDeep](stubresourcerecord.md#mergedeep)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2501
+Defined in node_modules/immutable/dist/immutable.d.ts:2549
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`...collections` | Array‹Partial‹TProps› &#124; Iterable‹[string, any]›› |
+`...collections` | Array‹Partial‹TProps› &#124; Iterable‹[]›› |
 
 **Returns:** *this*
 
@@ -420,18 +334,18 @@ ___
 
 ###  mergeDeepIn
 
-▸ **mergeDeepIn**(`keyPath`: Iterable‹any›, ...`collections`: Array‹any›): *this*
+▸ **mergeDeepIn**(`keyPath`: Iterable‹unknown›, ...`collections`: Array‹unknown›): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[mergeDeepIn](stubresourcerecord.md#mergedeepin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2532
+Defined in node_modules/immutable/dist/immutable.d.ts:2585
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
-`...collections` | Array‹any› |
+`keyPath` | Iterable‹unknown› |
+`...collections` | Array‹unknown› |
 
 **Returns:** *this*
 
@@ -439,27 +353,27 @@ ___
 
 ###  mergeDeepWith
 
-▸ **mergeDeepWith**(`merger`: function, ...`collections`: Array‹Partial‹TProps› | Iterable‹[string, any]››): *this*
+▸ **mergeDeepWith**(`merger`: function, ...`collections`: Array‹Partial‹TProps› | Iterable‹[]››): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[mergeDeepWith](stubresourcerecord.md#mergedeepwith)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2507
+Defined in node_modules/immutable/dist/immutable.d.ts:2557
 
 **Parameters:**
 
 ▪ **merger**: *function*
 
-▸ (`oldVal`: any, `newVal`: any, `key`: any): *any*
+▸ (`oldVal`: unknown, `newVal`: unknown, `key`: unknown): *unknown*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`oldVal` | any |
-`newVal` | any |
-`key` | any |
+`oldVal` | unknown |
+`newVal` | unknown |
+`key` | unknown |
 
-▪... **collections**: *Array‹Partial‹TProps› | Iterable‹[string, any]››*
+▪... **collections**: *Array‹Partial‹TProps› | Iterable‹[]››*
 
 **Returns:** *this*
 
@@ -467,18 +381,18 @@ ___
 
 ###  mergeIn
 
-▸ **mergeIn**(`keyPath`: Iterable‹any›, ...`collections`: Array‹any›): *this*
+▸ **mergeIn**(`keyPath`: Iterable‹unknown›, ...`collections`: Array‹unknown›): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[mergeIn](stubresourcerecord.md#mergein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2531
+Defined in node_modules/immutable/dist/immutable.d.ts:2584
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
-`...collections` | Array‹any› |
+`keyPath` | Iterable‹unknown› |
+`...collections` | Array‹unknown› |
 
 **Returns:** *this*
 
@@ -486,27 +400,27 @@ ___
 
 ###  mergeWith
 
-▸ **mergeWith**(`merger`: function, ...`collections`: Array‹Partial‹TProps› | Iterable‹[string, any]››): *this*
+▸ **mergeWith**(`merger`: function, ...`collections`: Array‹Partial‹TProps› | Iterable‹[]››): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[mergeWith](stubresourcerecord.md#mergewith)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2503
+Defined in node_modules/immutable/dist/immutable.d.ts:2553
 
 **Parameters:**
 
 ▪ **merger**: *function*
 
-▸ (`oldVal`: any, `newVal`: any, `key`: keyof TProps): *any*
+▸ (`oldVal`: unknown, `newVal`: unknown, `key`: keyof TProps): *unknown*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`oldVal` | any |
-`newVal` | any |
+`oldVal` | unknown |
+`newVal` | unknown |
 `key` | keyof TProps |
 
-▪... **collections**: *Array‹Partial‹TProps› | Iterable‹[string, any]››*
+▪... **collections**: *Array‹Partial‹TProps› | Iterable‹[]››*
 
 **Returns:** *this*
 
@@ -514,11 +428,11 @@ ___
 
 ###  remove
 
-▸ **remove**<**K**>(`key`: K): *this*
+▸ **remove**‹**K**›(`key`: K): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[remove](stubresourcerecord.md#remove)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2519
+Defined in node_modules/immutable/dist/immutable.d.ts:2569
 
 **Type parameters:**
 
@@ -536,17 +450,17 @@ ___
 
 ###  removeIn
 
-▸ **removeIn**(`keyPath`: Iterable‹any›): *this*
+▸ **removeIn**(`keyPath`: Iterable‹unknown›): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[removeIn](stubresourcerecord.md#removein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2538
+Defined in node_modules/immutable/dist/immutable.d.ts:2594
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
+`keyPath` | Iterable‹unknown› |
 
 **Returns:** *this*
 
@@ -554,11 +468,11 @@ ___
 
 ###  set
 
-▸ **set**<**K**>(`key`: K, `value`: TProps[K]): *this*
+▸ **set**‹**K**›(`key`: K, `value`: TProps[K]): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[set](stubresourcerecord.md#set)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2498
+Defined in node_modules/immutable/dist/immutable.d.ts:2541
 
 **Type parameters:**
 
@@ -577,18 +491,18 @@ ___
 
 ###  setIn
 
-▸ **setIn**(`keyPath`: Iterable‹any›, `value`: any): *this*
+▸ **setIn**(`keyPath`: Iterable‹unknown›, `value`: unknown): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[setIn](stubresourcerecord.md#setin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2529
+Defined in node_modules/immutable/dist/immutable.d.ts:2579
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`keyPath` | Iterable‹any› |
-`value` | any |
+`keyPath` | Iterable‹unknown› |
+`value` | unknown |
 
 **Returns:** *this*
 
@@ -600,7 +514,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[toJS](stubresourcerecord.md#tojs)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2548
+Defined in node_modules/immutable/dist/immutable.d.ts:2604
 
 Deeply converts this Record to equivalent native JavaScript Object.
 
@@ -617,7 +531,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[toJSON](stubresourcerecord.md#tojson)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2553
+Defined in node_modules/immutable/dist/immutable.d.ts:2609
 
 Shallowly converts this Record to equivalent native JavaScript Object.
 
@@ -631,7 +545,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[toObject](stubresourcerecord.md#toobject)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2558
+Defined in node_modules/immutable/dist/immutable.d.ts:2614
 
 Shallowly converts this Record to equivalent JavaScript Object.
 
@@ -645,7 +559,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[toSeq](stubresourcerecord.md#toseq)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2587
+Defined in node_modules/immutable/dist/immutable.d.ts:2643
 
 **Returns:** *Keyed‹keyof TProps, TProps[keyof TProps]›*
 
@@ -653,11 +567,11 @@ ___
 
 ###  update
 
-▸ **update**<**K**>(`key`: K, `updater`: function): *this*
+▸ **update**‹**K**›(`key`: K, `updater`: function): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[update](stubresourcerecord.md#update)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2499
+Defined in node_modules/immutable/dist/immutable.d.ts:2542
 
 **Type parameters:**
 
@@ -683,25 +597,25 @@ ___
 
 ###  updateIn
 
-▸ **updateIn**(`keyPath`: Iterable‹any›, `updater`: function): *this*
+▸ **updateIn**(`keyPath`: Iterable‹unknown›, `updater`: function): *this*
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[updateIn](stubresourcerecord.md#updatein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2530
+Defined in node_modules/immutable/dist/immutable.d.ts:2580
 
 **Parameters:**
 
-▪ **keyPath**: *Iterable‹any›*
+▪ **keyPath**: *Iterable‹unknown›*
 
 ▪ **updater**: *function*
 
-▸ (`value`: any): *any*
+▸ (`value`: unknown): *unknown*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`value` | any |
+`value` | unknown |
 
 **Returns:** *this*
 
@@ -713,7 +627,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[wasAltered](stubresourcerecord.md#wasaltered)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2578
+Defined in node_modules/immutable/dist/immutable.d.ts:2634
 
 **`see`** `Map#wasAltered`
 
@@ -727,7 +641,7 @@ ___
 
 *Inherited from [StubResourceRecord](stubresourcerecord.md).[withMutations](stubresourcerecord.md#withmutations)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2568
+Defined in node_modules/immutable/dist/immutable.d.ts:2624
 
 Note: Not all methods can be used on a mutable collection or within
 `withMutations`! Only `set` may be used mutatively.
@@ -738,7 +652,7 @@ Note: Not all methods can be used on a mutable collection or within
 
 ▪ **mutator**: *function*
 
-▸ (`mutable`: this): *any*
+▸ (`mutable`: this): *unknown*
 
 **Parameters:**
 
@@ -752,19 +666,19 @@ ___
 
 ### `Static` Factory
 
-▸ **Factory**<**TProps**>(`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
+▸ **Factory**‹**TProps**›(`values?`: Partial‹TProps› | Iterable‹[]›): *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2455
+Defined in node_modules/immutable/dist/immutable.d.ts:2494
 
 **Type parameters:**
 
-▪ **TProps**: *Object*
+▪ **TProps**: *object*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`values?` | Partial‹TProps› &#124; Iterable‹[string, any]› |
+`values?` | Partial‹TProps› &#124; Iterable‹[]› |
 
 **Returns:** *[Record](stubresourcerecord.md#static-record)‹TProps› & Readonly‹TProps›*
 
@@ -772,9 +686,9 @@ ___
 
 ### `Static` Record
 
-▸ **Record**<**TProps**>(`defaultValues`: TProps, `name?`: undefined | string): *[Factory](stubresourcerecord.md#factory)‹TProps›*
+▸ **Record**‹**TProps**›(`defaultValues`: TProps, `name?`: undefined | string): *[Factory](../modules/stubresourcerecord.factory.md)‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2467
+Defined in node_modules/immutable/dist/immutable.d.ts:2508
 
 Unlike other types in Immutable.js, the `Record()` function creates a new
 Record Factory, which is a function that creates Record instances.
@@ -786,7 +700,7 @@ Note: `Record` is a factory function and not a class, and does not use the
 
 **Type parameters:**
 
-▪ **TProps**
+▪ **TProps**: *object*
 
 **Parameters:**
 
@@ -795,7 +709,7 @@ Name | Type |
 `defaultValues` | TProps |
 `name?` | undefined &#124; string |
 
-**Returns:** *[Factory](stubresourcerecord.md#factory)‹TProps›*
+**Returns:** *[Factory](../modules/stubresourcerecord.factory.md)‹TProps›*
 
 ___
 
@@ -803,7 +717,7 @@ ___
 
 ▸ **getDescriptiveName**(`record`: [Record](stubresourcerecord.md#static-record)‹any›): *string*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2392
+Defined in node_modules/immutable/dist/immutable.d.ts:2428
 
 Records allow passing a second parameter to supply a descriptive name
 that appears when converting a Record to a string or in any error
@@ -833,9 +747,9 @@ ___
 
 ### `Static` isRecord
 
-▸ **isRecord**(`maybeRecord`: any): *maybeRecord is Record<any>*
+▸ **isRecord**(`maybeRecord`: unknown): *maybeRecord is Record‹object›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2373
+Defined in node_modules/immutable/dist/immutable.d.ts:2409
 
 True if `maybeRecord` is an instance of a Record.
 
@@ -843,6 +757,6 @@ True if `maybeRecord` is an instance of a Record.
 
 Name | Type |
 ------ | ------ |
-`maybeRecord` | any |
+`maybeRecord` | unknown |
 
-**Returns:** *maybeRecord is Record<any>*
+**Returns:** *maybeRecord is Record‹object›*
