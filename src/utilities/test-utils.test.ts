@@ -1,5 +1,5 @@
 import { TestUtils } from "./test-utils";
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { testLoop } from "./shared-specs";
 
 describe("TestUtils", () => {
@@ -50,7 +50,7 @@ describe("TestUtils", () => {
             () => {
                 // Arrange
                 const keys = faker.random.words(5).split(" ");
-                const obj = {};
+                const obj: Record<string, string> = {};
                 keys.forEach((key: string) => {
                     // Assign the randomly generated keys to the object
                     obj[key] = faker.datatype.uuid();
@@ -133,7 +133,7 @@ describe("TestUtils", () => {
             () => {
                 // Arrange
                 const keys = faker.random.words(5).split(" ");
-                const obj = {};
+                const obj: Record<string, number> = {};
                 keys.forEach((key: string) => {
                     // Assign the randomly generated keys to the object
                     obj[key] = faker.datatype.number();
@@ -174,7 +174,7 @@ describe("TestUtils", () => {
 
         testLoop("given an array without values, it returns undefined", () => {
             // Arrange
-            const obj = [];
+            const obj: any[] = [];
 
             // Act
             const result = TestUtils.randomValue(obj);

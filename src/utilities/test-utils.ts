@@ -1,4 +1,4 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 
 const TestUtils = {
     // -----------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ const TestUtils = {
      * Returns a random key from the given object. If the object has no keys, it returns `undefined`.
      */
     randomKey(obj: object): string {
-        return faker.random.arrayElement(Object.keys(obj));
+        return faker.helpers.arrayElement(Object.keys(obj));
     },
 
     /**
@@ -76,7 +76,7 @@ const TestUtils = {
         obj: Record<string, TValue> | Array<TValue>
     ): TValue {
         if (Array.isArray(obj)) {
-            return faker.random.arrayElement(obj);
+            return faker.helpers.arrayElement(obj);
         }
 
         return obj[this.randomKey(obj)];
