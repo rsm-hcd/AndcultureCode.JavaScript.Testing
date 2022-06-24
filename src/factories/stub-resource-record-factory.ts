@@ -1,4 +1,3 @@
-import { FactoryBuilder } from "factories/factory-builder";
 import { Factory } from "rosie";
 import { StubResourceRecord } from "../stubs/stub-resource-record";
 import { FactoryType } from "./factory-type";
@@ -7,18 +6,12 @@ import { FactoryType } from "./factory-type";
 // #region Factory
 // -----------------------------------------------------------------------------------------
 
-const StubResourceRecordFactoryBuilder: FactoryBuilder<StubResourceRecord> = (
-    factory
-) =>
-    factory
-        .define<StubResourceRecord>(
-            FactoryType.StubResourceRecord,
-            StubResourceRecord
-        )
-        .sequence("id", (i: number) => i)
-        .sequence("name", (i: number) => `Name ${i}`);
-
-const StubResourceRecordFactory = StubResourceRecordFactoryBuilder(Factory);
+const StubResourceRecordFactory = Factory.define<StubResourceRecord>(
+    FactoryType.StubResourceRecord,
+    StubResourceRecord
+)
+    .sequence("id", (i: number) => i)
+    .sequence("name", (i: number) => `Name ${i}`);
 
 // #endregion Factory
 
@@ -26,6 +19,6 @@ const StubResourceRecordFactory = StubResourceRecordFactoryBuilder(Factory);
 // #region Export
 // -----------------------------------------------------------------------------------------
 
-export { StubResourceRecordFactory, StubResourceRecordFactoryBuilder };
+export { StubResourceRecordFactory };
 
 // #endregion Export

@@ -2,15 +2,9 @@
 // #region Factories
 // -----------------------------------------------------------------------------------------
 
+export { AxiosResponseFactory } from "./factories/axios-response-factory";
 export { FactoryType } from "./factories/factory-type";
-export {
-    AxiosResponseFactory,
-    AxiosResponseFactoryBuilder,
-} from "./factories/axios-response-factory";
-export {
-    StubResourceRecordFactory,
-    StubResourceRecordFactoryBuilder,
-} from "./factories/stub-resource-record-factory";
+export { StubResourceRecordFactory } from "./factories/stub-resource-record-factory";
 
 // #endregion Factories
 
