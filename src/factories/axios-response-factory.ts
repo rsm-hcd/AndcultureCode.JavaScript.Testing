@@ -1,16 +1,19 @@
 import { Factory } from "rosie";
 import { FactoryType } from "./factory-type";
 import { AxiosResponse } from "axios";
+import { FactoryBuilder } from "factories/factory-builder";
 
 // -----------------------------------------------------------------------------------------
 // #region Factory
 // -----------------------------------------------------------------------------------------
 
-const AxiosResponseFactory = Factory.define<AxiosResponse>(
-    FactoryType.AxiosResponse
-)
-    .sequence("status", () => 200)
-    .sequence("statusText", () => "OK");
+const AxiosResponseFactoryBuilder: FactoryBuilder<AxiosResponse> = (factory) =>
+    factory
+        .define<AxiosResponse>(FactoryType.AxiosResponse)
+        .sequence("status", () => 200)
+        .sequence("statusText", () => "OK");
+
+const AxiosResponseFactory = AxiosResponseFactoryBuilder(Factory);
 
 // #endregion Factory
 
@@ -18,6 +21,6 @@ const AxiosResponseFactory = Factory.define<AxiosResponse>(
 // #region Export
 // -----------------------------------------------------------------------------------------
 
-export { AxiosResponseFactory };
+export { AxiosResponseFactory, AxiosResponseFactoryBuilder };
 
 // #endregion Export

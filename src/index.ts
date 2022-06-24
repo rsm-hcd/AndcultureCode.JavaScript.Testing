@@ -2,9 +2,15 @@
 // #region Factories
 // -----------------------------------------------------------------------------------------
 
-export { AxiosResponseFactory } from "./factories/axios-response-factory";
 export { FactoryType } from "./factories/factory-type";
-export { StubResourceRecordFactory } from "./factories/stub-resource-record-factory";
+export {
+    AxiosResponseFactory,
+    AxiosResponseFactoryBuilder,
+} from "./factories/axios-response-factory";
+export {
+    StubResourceRecordFactory,
+    StubResourceRecordFactoryBuilder,
+} from "./factories/stub-resource-record-factory";
 
 // #endregion Factories
 
@@ -12,7 +18,8 @@ export { StubResourceRecordFactory } from "./factories/stub-resource-record-fact
 // #region Mocks
 // -----------------------------------------------------------------------------------------
 
-export * from "./mocks/axios";
+import axios from "./mocks/axios";
+export { axios };
 export { MockAxios } from "./mocks/mock-axios";
 
 // #endregion Mocks
