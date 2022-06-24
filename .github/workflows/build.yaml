@@ -60,3 +60,31 @@ jobs:
 
             - name: Upload to codecov
               uses: codecov/codecov-action@v1
+
+    notify_success:
+        runs-on: ubuntu-latest
+        needs: [build]
+        if: github.repository_owner == 'AndcultureCode' && success()
+        steps:
+            - name: Notify dedicated teams channel
+              uses: jdcargile/ms-teams-notification@v1.3
+              with:
+                  github-token: ${{ github.token }} # this will use the runner's token.
+                  ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+                  notification-summary: Successful Build
+                  notification-color: 22c55e
+                  timezone: America/New_York
+
+    notify_failure:
+        runs-on: ubuntu-latest
+        needs: [build]
+        if: github.repository_owner == 'AndcultureCode' && failure()
+        steps:
+            - name: Notify dedicated teams channel
+              uses: jdcargile/ms-teams-notification@v1.3
+              with:
+                  github-token: ${{ github.token }} # this will use the runner's token.
+                  ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+                  notification-summary: Build Failure
+                  notification-color: ef4444
+                  timezone: America/New_York

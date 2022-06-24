@@ -12,7 +12,8 @@ export { StubResourceRecordFactory } from "./factories/stub-resource-record-fact
 // #region Mocks
 // -----------------------------------------------------------------------------------------
 
-export * from "./mocks/axios";
+import axios from "./mocks/axios";
+export { axios };
 export { MockAxios } from "./mocks/mock-axios";
 
 // #endregion Mocks
